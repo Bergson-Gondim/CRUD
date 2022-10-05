@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <span>Cadastro de Produtos</span>
+      <button onclick="openModal()" id="new">Cadastrar novo produto</i></button>
+    </div>
+
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th>Tipo</th>
+            <th>Quantidade</th>
+            <th>Condição</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+            <th class="acao">Testar</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-container">
+      <div class="modal">
+        <h1>Cadastrar Produto</h1>
+        <br><br>
+        <form>
+          <label for="m-modelo">Modelo</label>
+          <input id="m-modelo" type="text" required />
+
+          <label for="m-marca">Marca</label>
+          <input id="m-marca" type="text" required />
+
+          <label for="m-tipo">Tipo</label>
+          <select name="tipo" id="m-tipo" form="tipoform">
+            <option value="selecione">--Selecione--</option>
+            <option value="smartphone">Smartphone</option>
+            <option value="tablet">Tablet</option>
+            <option value="smartwatch">Smartwatch</option>
+          </select>
+
+          <br><br>
+
+          <table>
+            <tr>
+      
+              <td>
+                <label for="m-quantidade">Quantidade</label>
+              </td>
+              <td>
+                <input id="m-quantidade" type="number" min="1" required />
+              </td>
+            </tr>
+          </table>
+
+          <table>
+            <tr>
+              <td><label for="m-condicao" >Condição</label></td>
+              <td><input type="radio" name="condicao" value="novo" required/></td>
+              <td><label>Novo</label></td>
+              <td><input type="radio" name="condicao" value="usado" required/></td>
+              <td><label>Usado</label></td>
+
+            </tr>
+          </table>
+
+
+          <table>
+            <tr>
+              <td><button id="btnSalvar">Cadastrar</button></td>
+              <td><button id="btnSalvar">Limpar</button></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
