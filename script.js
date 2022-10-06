@@ -4,7 +4,7 @@ const sModelo = document.querySelector('#m-modelo')
 const sMarca = document.querySelector('#m-marca')
 const sTipo = document.querySelector('#m-tipo')
 const sQuantidade = document.querySelector('#m-quantidade')
-const sCondicao = document.querySelector('#m-condicao')
+const sCondicao = document.querySelector('input[name=condicao]:checked')
 const btnSalvar = document.querySelector('#btnSalvar')
 
 let itens
@@ -20,8 +20,8 @@ function openModal(edit = false, index = 0) {
   }
 
   if (edit) {
-    sModelo.value = itens[index].nome
-    sMarca.value = itens[index].funcao
+    sModelo.value = itens[index].modelo
+    sMarca.value = itens[index].marca
     sTipo.value = itens[index].tipo
     sQuantidade.value = itens[index].quantidade
     sCondicao.value = itens[index].condicao
@@ -61,6 +61,11 @@ function insertItem(item, index) {
       <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
     </td>
   `
+  console.log(sModelo.value)
+  console.log(sMarca.value)
+  console.log(sTipo.value)
+  console.log(sQuantidade.value)
+  console.log(sCondicao.value)
   tbody.appendChild(tr)
 }
 
@@ -79,7 +84,7 @@ btnSalvar.onclick = e => {
     itens[id].quantidade = sQuantidade.value
     itens[id].condicao = sCondicao.value
   } else {
-    itens.push({'nome': sModelo.value, 'funcao': sMarca.value, 'tipo': sTipo.value})
+    itens.push({'modelo': sModelo.value, 'marca': sMarca.value, 'tipo': sTipo.value, 'quantidade': sQuantidade.value, 'condicao':sCondicao.value})
   }
 
   setItensBD()
