@@ -4,8 +4,9 @@ const sModelo = document.querySelector('#m-modelo')
 const sMarca = document.querySelector('#m-marca')
 const sTipo = document.querySelector('#m-tipo')
 const sQuantidade = document.querySelector('#m-quantidade')
-const sCondicao = document.querySelector('input[name=condicao]:checked')
+const sCondicao = document.querySelector('input[name="condicao"]:checked')
 const btnSalvar = document.querySelector('#btnSalvar')
+
 
 let itens
 let id
@@ -70,7 +71,7 @@ function insertItem(item, index) {
 }
 
 btnSalvar.onclick = e => {
-  
+
   if (sModelo.value == '' || sMarca.value == '' || sTipo.value == '') {
     return
   }
@@ -84,7 +85,7 @@ btnSalvar.onclick = e => {
     itens[id].quantidade = sQuantidade.value
     itens[id].condicao = sCondicao.value
   } else {
-    itens.push({'modelo': sModelo.value, 'marca': sMarca.value, 'tipo': sTipo.value, 'quantidade': sQuantidade.value, 'condicao':sCondicao.value})
+    itens.push({ 'modelo': sModelo.value, 'marca': sMarca.value, 'tipo': sTipo.value, 'quantidade': sQuantidade.value, 'condicao': sCondicao.value })
   }
 
   setItensBD()
@@ -92,6 +93,14 @@ btnSalvar.onclick = e => {
   modal.classList.remove('active')
   loadItens()
   id = undefined
+}
+
+function limpar() {
+  sModelo.value = ''
+  sMarca.value = ''
+  sTipo.selectedIndex = "0"
+  sQuantidade.value = ''
+  sQuantidade.value = ''
 }
 
 function loadItens() {
