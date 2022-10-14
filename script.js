@@ -1,11 +1,14 @@
-const modal = document.querySelector('.modal-container')
-const tbody = document.querySelector('tbody')
-const sModelo = document.querySelector('#m-modelo')
-const sMarca = document.querySelector('#m-marca')
-const sTipo = document.querySelector('#m-tipo')
-const sQuantidade = document.querySelector('#m-quantidade')
-const sCondicao = document.querySelector('input[name="condicao"]:checked')
-const btnSalvar = document.querySelector('#btnSalvar')
+var modal = document.querySelector('.modal-container')
+var tbody = document.querySelector('tbody')
+var sModelo = document.querySelector('#m-modelo')
+var sMarca = document.querySelector('#m-marca')
+var sTipo = document.querySelector('#m-tipo')
+var sQuantidade = document.querySelector('#m-quantidade')
+var sCondicao = document.querySelector('input[name = "condicao"]:checked')
+var condValue;
+
+
+var btnSalvar = document.querySelector('#btnSalvar')
 
 
 let itens
@@ -66,7 +69,7 @@ function insertItem(item, index) {
   console.log(sMarca.value)
   console.log(sTipo.value)
   console.log(sQuantidade.value)
-  console.log(sCondicao.value)
+  //console.log(sCondicao.value)
   tbody.appendChild(tr)
 }
 
@@ -77,6 +80,8 @@ btnSalvar.onclick = e => {
   }
 
   e.preventDefault();
+
+  sCondicao = document.querySelector('input[name = "condicao"]:checked')
 
   if (id !== undefined) {
     itens[id].modelo = sModelo.value
@@ -112,7 +117,7 @@ function loadItens() {
 
 }
 
-const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? []
-const setItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens))
+var getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? []
+var setItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens))
 
 loadItens()
